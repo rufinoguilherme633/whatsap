@@ -1,4 +1,4 @@
-'use strict'
-<script>
-console.log('alo')
-</script>
+// 'use strict'
+// <script>
+// console.log('alo')
+// </script>

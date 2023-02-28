@@ -2,21 +2,34 @@
 import { contatos } from "./contatos.js"
 
 const criarContato = (contato) => {
+    const contatos = document.createElement('div')
+    contatos.classList.add('person-talking')
 
-    const personTalking = document.createElement('div')
-    personTalking.classList.add('person-talking')
-
-    const img = document.createElement('img')
-    img.classList.add('img-user')
-    img.src = `./images/${contato.image}`
+      const img = document.createElement('img')
+      img.classList.add('img-person-talking')
+      img.src = `./img/${contato.image}`
 
     const name = document.createElement('h4')
     name.classList.add('name-person-talking')
     name.textContent = contato.name
 
-    personTalking.append(img, name)
+    const description = document.createElement('h5')
+    description.classList.add('last-mensage')
+    description.textContent = contato.description
 
-    return personTalking
+     contatos.append(img, name,description)
+    // contatos.append(name,description)
+    return contatos
 }
 
-criarContato()
+
+
+
+const carregarContato = () => {
+    const container = document.getElementById('chatlist')
+    const cntatoI = contatos.map(criarContato)
+
+    container.replaceChildren(...cntatoI )
+}
+
+carregarContato()
