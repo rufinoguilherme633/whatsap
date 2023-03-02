@@ -50,7 +50,7 @@ const criarMensagem = (mensagem) => {
         //msg.textContent = mensagem[1]
 
     console.log(mensagem.messages[0].content)
-
+    msg.textContent =  mensagem.messages[0].content
     // console.log(mensagem.messages)
 
 
