@@ -12,6 +12,8 @@ import { contatos } from "./contatos.js"
 //console.log(contatos[0].messages[0].sender[1]);
 
 
+
+
 const criarContato = (contato) => {
     const contatos = document.createElement('div')
     contatos.classList.add('person-talking')
@@ -41,34 +43,75 @@ const carregarContato = () => {
 }
 carregarContato()
 
-const criarMensagem = (mensagem) => {
-    const mensagens = document.createElement('div')
+const criarMensagem = (contato) => {
+
+
+    const mensagens = document.createElement('ul')
     mensagens.classList.add('mensages')
 
-    const msg = document.createElement('p')
-    msg.classList.add('mesage')
-        //msg.textContent = mensagem[1]
+    console.log(contato.messages)
+    let resultado = ""
+    contato.messages.forEach(function(mensagem) {
+        resultado += mensagem.content
+    });
 
-    console.log(mensagem.messages[0].content)
-    msg.textContent =  mensagem.messages[0].content
+
+
+    const msg = document.createElement('li')
+    msg.classList.add('mesage')
+    msg.textContent = resultado
+    mensagens.append(msg)
+
+    console.log(mensagens)
+
+    return mensagens
+
+    // const mensagens = document.createElement('ul')
+    // mensagens.classList.add('mensages')
+
+
+    //msg.textContent = mensagem[1]
+
+    //console.log(mensagem.messages[0].content)
+    //msg.textContent = mensagem.messages
+
     // console.log(mensagem.messages)
 
 
 
     //console.log(mensagem.messages[1].timestamp)
     //console.log(mensagem.messages[0].content[0])
+    // let resultado = "";
+    // contatos.forEach(function(contato) {
+    // contatos[0].messages.forEach(function(mensagem) {
+    //     console.log(mensagem.content);
+    //     resultado += mensagem.content + ';';
+    //return mensagem.content
+    // });
+    // });
 
 
-    mensagens.append(msg)
+    // const msg = document.createElement('li')
+    // msg.classList.add('mesage')
+    // console.log(resultado)
+    // msg.textContent = resultado
+    // mensagens.append(msg)
 
-    return mensagens
+
+    // return mensagens
 }
 
 const carregarHeader = () => {
     const container = document.getElementById('container-message-submissions')
-    const cntatoI = contatos.map(criarMensagem)
 
-    container.replaceChildren(...cntatoI)
+    // const cntatoI = contatos.map(criarMensagem)
+
+    const ul = criarMensagem(contatos[0])
+
+    container.append(ul)
+
+
+    // container.replaceChildren(...cntatoI)
 }
 
 carregarHeader()
