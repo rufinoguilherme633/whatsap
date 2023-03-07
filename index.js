@@ -31,7 +31,7 @@ const criarContato = (contato) => {
     description.textContent = contato.description
 
     contatos.append(img, name, description)
-        // contatos.append(name,description)
+    // contatos.append(name,description)
     return contatos
 }
 
@@ -44,22 +44,30 @@ const carregarContato = () => {
 carregarContato()
 
 const criarMensagem = (contato) => {
-
-
     const mensagens = document.createElement('ul')
     mensagens.classList.add('mensages')
+    // console.log(contato.messages)
+    // let list = {}
+    const retornoConversa = function () {
 
-    console.log(contato.messages)
-    let resultado = ""
-    contato.messages.forEach(function(mensagem) {
-        resultado += mensagem.content
-    });
-
-
+        let test = contato.messages.length
+        //console.log(test)
+        for (let cont = 0; cont < test; cont++) {
+            //listaArray.push(estadosCidades.estados.sigla)
+            let list = contato.messages[cont].content
+            const teste = JSON.stringify(list)
+           
+            //  console.log(teste)
+            return teste
+        }
+    }
+    // contato.messages.forEach(function(mensagem) {
+    //     resultado += mensagem.content
+    // });
 
     const msg = document.createElement('li')
     msg.classList.add('mesage')
-    msg.textContent = resultado
+    msg.textContent = retornoConversa()
     mensagens.append(msg)
 
     console.log(mensagens)
@@ -104,11 +112,9 @@ const criarMensagem = (contato) => {
 const carregarHeader = () => {
     const container = document.getElementById('container-message-submissions')
 
-    // const cntatoI = contatos.map(criarMensagem)
+    const cntatoI = contatos.map(criarMensagem)
 
-    const ul = criarMensagem(contatos[0])
-
-    container.append(ul)
+    container.replaceChildren(...cntatoI)
 
 
     // container.replaceChildren(...cntatoI)
@@ -118,10 +124,22 @@ carregarHeader()
 
 
 
+const estilizar = function () {
+    const objetoDados = (contatos[0].messages);
+    const elemento = document.getElementById("container-message-submissions");
+console.log( objetoDados)
+// seleciona o elemento HTML que representa a segunda mensagem
+const messageElement = document.querySelectorAll("li")[10];
+const messageElement1 = document.querySelectorAll("li")[12];
+
+// define a cor de fundo do elemento como amarelo
+messageElement.style.backgroundColor = "green";
+messageElement1.style.backgroundColor = "green";
 
 
+}
 
-
+estilizar()
 // const criarMensagem = (mensagem) => {
 //     const mensagens = document.createElement('div')
 //     mensagens.classList.add('mensages')
