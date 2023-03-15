@@ -3,6 +3,28 @@
 	padding:0;	
 	 box-sizing: border-box;
 }
+
+.message__sent {
+	background-color: #d9fdd3;
+	max-width: max-content;
+	padding: 5px;
+	border-radius: 10px 10px 10px 10px;
+line-height: 1.2;
+	margin:  20px 0 20px 0;
+	
+	
+}
+
+.message__received_span {
+	background-color:	#D3D3D3;
+	max-width: max-content;
+	padding: 5px;
+	border-radius: 10px 10px 10px 10px;
+	margin-left: 20px;
+	line-height: 1.2;
+
+	
+}
 body {
     height:100vh;
 	width:100%;
