@@ -175,6 +175,7 @@ carregarContato()
 
 const getConversas = (mensagem) => {
 
+    
     const DivMessageSent = document.createElement('div')
 
 
