@@ -50,16 +50,24 @@ const criarMensagem = (contato) => {
     // let list = {}
     const retornoConversa = function () {
 
-        let test = contato.messages.length
+        let test =  contato.messages.length
+        let test2 = contato.messages.length
         //console.log(test)
         for (let cont = 0; cont < test; cont++) {
             //listaArray.push(estadosCidades.estados.sigla)
             let list = contato.messages[cont].content
             const teste = JSON.stringify(list)
-           
+            
+            // for (let cont = 0; cont < test; cont++) {
+            //     console.log(contatos[cont].messages)
+            //    // break
+               
+            // }
+           // break
             //  console.log(teste)
             return teste
         }
+        
     }
     // contato.messages.forEach(function(mensagem) {
     //     resultado += mensagem.content
